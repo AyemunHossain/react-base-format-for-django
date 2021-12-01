@@ -4,13 +4,22 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-ReactDOM.render(
+const mainRoutes = (
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <Router>
+      <Header />
+      <Routes>
+        <Route exact path="/" element={<App />} />
+      </Routes>
+      <Footer />
+    </Router>
+  </React.StrictMode>
+)
+ReactDOM.render(mainRoutes, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -21,3 +30,6 @@ serviceWorkerRegistration.unregister();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+{/*  */}
